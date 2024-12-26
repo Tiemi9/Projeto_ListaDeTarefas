@@ -19,18 +19,31 @@ form.addEventListener('submit', (event) => {
     tasks.push(taskTitle)
 
     //add tarefas no HTML
+    // const li = document.createElement('li')
+    // li.textContent = taskTitle
+
+    // const checkbox = document.createElement('input')
+    // checkbox.setAttribute('type', 'checkbox')
+
+    // toDoListUl.appendChild(checkbox)
+    // toDoListUl.appendChild(li)
+
     const li = document.createElement('li')
-    li.textContent = taskTitle
 
     const checkbox = document.createElement('input')
     checkbox.setAttribute('type', 'checkbox')
 
-    toDoListUl.appendChild(checkbox)
-    toDoListUl.appendChild(li)
-
-
+    const task = document.createElement('span')
+    task.textContent = taskTitle
     
+    const button = document.createElement('button')
+    button.textContent = 'Remover'
+    
+    li.appendChild(checkbox)
+    li.appendChild(task)
+    li.appendChild(button)
 
+    toDoListUl.appendChild(li)
 })
 
 // taskButton.addEventListener('click', () => {

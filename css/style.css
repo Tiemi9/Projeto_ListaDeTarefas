@@ -59,7 +59,7 @@ main > form input {
     background-color: rgba(0, 128, 128, 0.115);
 }
 
-main > form button {
+button {
     background-color: teal;
     color: antiquewhite;
 }
@@ -74,13 +74,35 @@ main > section {
     background: linear-gradient(rgb(157, 155, 155), white);
 }
 
-section > ul {
+section > ol li{
+    max-width: fit-content;
+    margin: 1rem;
+    align-items: center;
+
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr;
+}
+
+section > ol li input {
+    height: 1.3rem;
+}
+
+section > ol li button {
+    height: 2.5rem;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+section > ol li span {
+    margin: 1rem ;
+}
+
+/* section > ul {
     align-items: center;
     list-style: none;
     
     display: grid;
     grid-template-columns: 1fr 12fr;
-    
 }
 
 section > ul input {
@@ -90,4 +112,4 @@ section > ul input {
 section > ul li {
    width: fit-content;
     margin: 1rem 0;
-}
+} */
