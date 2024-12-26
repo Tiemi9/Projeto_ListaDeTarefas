@@ -22,7 +22,7 @@ header {
 }
 
 main {
-    height: 45rem;
+    height: 100%;
     margin: 1rem;
     padding: 2rem;
     
@@ -75,5 +75,19 @@ main > section {
 }
 
 section > ul {
-    list-style: square;
+    align-items: center;
+    list-style: none;
+    
+    display: grid;
+    grid-template-columns: 1fr 12fr;
+    
+}
+
+section > ul input {
+    height: 1.3rem;
+}
+
+section > ul li {
+   width: fit-content;
+    margin: 1rem 0;
 }
