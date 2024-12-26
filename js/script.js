@@ -16,7 +16,12 @@ form.addEventListener('submit', (event) => {
     }
 
     //add tarefas no array
-    tasks.push(taskTitle)
+    tasks.push({
+        title:taskTitle,
+        done: false,
+    })
+
+    console.log(tasks)
 
     //add tarefas no HTML
     // const li = document.createElement('li')
