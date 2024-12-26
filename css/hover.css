@@ -1,0 +1,5 @@
+main > form button:hover {
+    background-color: antiquewhite;
+    color: teal;
+    cursor: pointer;
+}
