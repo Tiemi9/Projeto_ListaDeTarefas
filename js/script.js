@@ -74,6 +74,14 @@ window.onload = () => {
     });
 }
 
+taskTitleInput.addEventListener('focus', () => {
+    taskTitleInput.setAttribute('placeholder', '')
+})
+taskTitleInput.addEventListener('blur', () => {
+    taskTitleInput.setAttribute('placeholder', 'Informe a sua tarefa...')
+})
+
+
 form.addEventListener('submit', (event) => {
     event.preventDefault() //para evitar o recarregamento da página que é a config. padrão
     
@@ -81,9 +89,12 @@ form.addEventListener('submit', (event) => {
 
     if (taskTitle.length < 5) {
         alert('Sua tarefa precisa ter, pelo menos, 5 caractéres! 😉')
+        taskTitleInput.value = ''
         return
+    } else {
+        taskTitleInput.value = ''
     }
-
+    
     //add tarefas no array
     tasks.push({
         title:taskTitle,
