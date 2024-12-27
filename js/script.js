@@ -5,6 +5,75 @@ const toDoListUl = document.querySelector("#toDo-list")
 
 let tasks = []
 
+function renderTask(taskTitle, done = false) {
+    const li = document.createElement('li')
+    const checkbox = document.createElement('input')
+    checkbox.setAttribute('type', 'checkbox')
+    checkbox.addEventListener('change', (event) => {
+        const liToToggle = event.target.parentElement
+        const arrayToToggle = liToToggle.querySelector('span')
+        const done = event.target.checked
+
+        if (done) {
+            arrayToToggle.style.textDecoration = 'line-through'
+        } else {
+            arrayToToggle.style.textDecoration = 'none'
+        }
+
+        tasks = tasks.map(t => {
+            if (t.title === arrayToToggle.textContent) {
+                return {
+                    title: t.title,
+                    done: !t.done
+                }
+            }
+            return t
+        })
+
+        localStorage.setItem('tasks', JSON.stringify(tasks))
+    })
+
+    checkbox.checked = done
+
+    const task = document.createElement('span')
+    task.textContent = taskTitle
+
+    if (done) {
+        task.style.textDecoration = 'line-through'
+    }
+    
+    const button = document.createElement('button')
+    button.textContent = 'Remover'
+    button.addEventListener('click', (event) => {
+        const liToRemove = event.target.parentElement
+        const arrayToRemove = liToRemove.querySelector('span').textContent
+        
+        tasks = tasks.filter(t => t.title !== arrayToRemove)
+
+        toDoListUl.removeChild(liToRemove)
+
+        localStorage.setItem('tasks', JSON.stringify(tasks))
+    })
+    
+    li.appendChild(checkbox)
+    li.appendChild(task)
+    li.appendChild(button)
+
+    toDoListUl.appendChild(li)
+}
+
+window.onload = () => {
+    const tasksOnLocalStorage = localStorage.getItem('tasks')
+    
+    if (!tasksOnLocalStorage) return
+
+    tasks = JSON.parse(tasksOnLocalStorage)
+
+    tasks.forEach(t => {
+        renderTask(t.title, t.done)
+    });
+}
+
 form.addEventListener('submit', (event) => {
     event.preventDefault() //para evitar o recarregamento da página que é a config. padrão
     
@@ -33,60 +102,6 @@ form.addEventListener('submit', (event) => {
     // toDoListUl.appendChild(checkbox)
     // toDoListUl.appendChild(li)
 
-    const li = document.createElement('li')
-
-    const checkbox = document.createElement('input')
-    checkbox.setAttribute('type', 'checkbox')
-    checkbox.addEventListener('change', (event) => {
-        const liToToggle = event.target.parentElement
-        const arrayToToggle = liToToggle.querySelector('span')
-        const done = event.target.checked
-
-        if (done) {
-            arrayToToggle.style.textDecoration = 'line-through'
-        } else {
-            arrayToToggle.style.textDecoration = 'none'
-        }
-
-        tasks = tasks.map(t => {
-            if (t.title === arrayToToggle.textContent) {
-                return {
-                    title: t.title,
-                    done: !t.done
-                }
-            }
-            return t
-        })
-
-        localStorage.setItem('tasks', JSON.stringify(tasks))
-    })
-
-    const task = document.createElement('span')
-    task.textContent = taskTitle
-    
-    const button = document.createElement('button')
-    button.textContent = 'Remover'
-    button.addEventListener('click', (event) => {
-        const liToRemove = event.target.parentElement
-        const arrayToRemove = liToRemove.querySelector('span').textContent
-        
-        tasks = tasks.filter(t => t.title !== arrayToRemove)
-
-        toDoListUl.removeChild(liToRemove)
-
-        localStorage.setItem('tasks', JSON.stringify(tasks))
-    })
-    
-    li.appendChild(checkbox)
-    li.appendChild(task)
-    li.appendChild(button)
-
-    toDoListUl.appendChild(li)
-
-
+    renderTask(taskTitle)
+   
 })
-
-// taskButton.addEventListener('click', () => {
-//     console.log('clicou')
-// }) 
-
