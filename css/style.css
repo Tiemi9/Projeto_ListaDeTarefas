@@ -80,7 +80,7 @@ section > ol li{
     align-items: center;
 
     display: grid;
-    grid-template-columns: 1fr 8fr 2fr;
+    grid-template-columns: 1fr 15fr 2fr;
 }
 
 section > ol li input {
@@ -89,6 +89,7 @@ section > ol li input {
 
 section > ol li button {
     height: 2.5rem;
+    min-width: 8rem;
     padding: .5rem;
     border-radius: 1rem;
 }

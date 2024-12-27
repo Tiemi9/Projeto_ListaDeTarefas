@@ -44,7 +44,14 @@ form.addEventListener('submit', (event) => {
     const button = document.createElement('button')
     button.textContent = 'Remover'
     button.addEventListener('click', (event) => {
-        toDoListUl.removeChild(event.target.parentElement)
+        const liToRemove = event.target.parentElement
+        const arrayToRemove = liToRemove.querySelector('span').textContent
+        
+        tasks = tasks.filter(t => t.title !== arrayToRemove)
+
+        toDoListUl.removeChild(liToRemove)
+
+        console.log(tasks)
     })
     
     li.appendChild(checkbox)
