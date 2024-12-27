@@ -21,7 +21,7 @@ form.addEventListener('submit', (event) => {
         done: false,
     })
 
-    console.log(tasks)
+    localStorage.setItem('tasks', JSON.stringify(tasks))
 
     //add tarefas no HTML
     // const li = document.createElement('li')
@@ -52,12 +52,13 @@ form.addEventListener('submit', (event) => {
             if (t.title === arrayToToggle.textContent) {
                 return {
                     title: t.title,
-                    done: !t.true
+                    done: !t.done
                 }
             }
             return t
         })
-        console.log(tasks)
+
+        localStorage.setItem('tasks', JSON.stringify(tasks))
     })
 
     const task = document.createElement('span')
@@ -73,7 +74,7 @@ form.addEventListener('submit', (event) => {
 
         toDoListUl.removeChild(liToRemove)
 
-        console.log(tasks)
+        localStorage.setItem('tasks', JSON.stringify(tasks))
     })
     
     li.appendChild(checkbox)
