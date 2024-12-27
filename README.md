@@ -2,7 +2,7 @@
 
 A proposta desse projeto foi criar uma aplicação web para organnizar uma lista de tarefas salvando-a no local storage.
 
-![preview](./.github/preview.png)
+![preview](./.github/Preview.png)
 
 [Clique aqui para acessar!!👈](https://tiemi9.github.io/Projeto_ListaDeTarefas/)
 
