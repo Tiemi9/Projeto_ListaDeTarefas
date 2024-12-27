@@ -37,6 +37,28 @@ form.addEventListener('submit', (event) => {
 
     const checkbox = document.createElement('input')
     checkbox.setAttribute('type', 'checkbox')
+    checkbox.addEventListener('change', (event) => {
+        const liToToggle = event.target.parentElement
+        const arrayToToggle = liToToggle.querySelector('span')
+        const done = event.target.checked
+
+        if (done) {
+            arrayToToggle.style.textDecoration = 'line-through'
+        } else {
+            arrayToToggle.style.textDecoration = 'none'
+        }
+
+        tasks = tasks.map(t => {
+            if (t.title === arrayToToggle.textContent) {
+                return {
+                    title: t.title,
+                    done: !t.true
+                }
+            }
+            return t
+        })
+        console.log(tasks)
+    })
 
     const task = document.createElement('span')
     task.textContent = taskTitle
