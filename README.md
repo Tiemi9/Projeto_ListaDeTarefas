@@ -4,7 +4,7 @@ A proposta desse projeto foi criar uma aplicação web para organnizar uma lista
 
 ![preview](./.github/preview.png)
 
-[Clique aqui para acessar!!👈](https://tiemi9.github.io/Lista-de-Tarefas-JS/)
+[Clique aqui para acessar!!👈](https://tiemi9.github.io/Projeto_ListaDeTarefas/)
 
 ## 🎮 Tecnologias utilizadas:
 
