@@ -1,6 +1,6 @@
 # Projeto JS: lista de Tarefas
 
-A proposta desse projeto foi criar uma aplicação web para organnizar uma lista de tarefas salvando-a no local storage.
+A proposta desse projeto foi criar uma aplicação web para organizar uma lista de tarefas salvando-a no local storage.
 
 ![preview](./github/Preview.png)
 
